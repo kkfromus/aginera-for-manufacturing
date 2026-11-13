@@ -36,10 +36,11 @@ controlling document either way.
      and the file must not be used for estimating.
    - **Completeness**: every view on the sheet is present.
    - **Text**: dimensions and notes came across legibly.
-4. **Download (ask first)** — state the price and format (DXF for Fusion
-   sketches; DWG if the plant's CAD standard wants it). On a yes, use the
-   account's credits, or give the user the `checkout_url` to pay. Never pay
-   for them.
+4. **Download (ask first when it costs)** — state the price and format (DXF
+   for Fusion sketches; DWG if the plant's CAD standard wants it). When
+   `convert_pdf_to_cad` reports no charge for this account, say so and
+   continue. Otherwise ask; on a yes, use the account's credits, or give the
+   user the `checkout_url` to pay. Never pay for them.
 5. **Into Fusion** — when the Fusion connector from Claude for Manufacturing
    is connected and the user wants it, import the DXF as a sketch on a new
    design. Never overwrite an existing design. Then follow
