@@ -42,8 +42,16 @@ Ask which of these the user wants. Run only those.
    changes and expansion budgets.
 
 4. **3D images and walkthrough film** — on request:
+   - The renderer reads rooms, walls, doors and windows. It works best on
+     office, amenity and building areas; an open shop floor drawn as machine
+     outlines may come back `no_renders`. Say so before starting.
    - State what Aginera will produce, the 5–15 minute wait, and the cost.
-     On a yes, `render_floor_plan`, then poll `get_floor_plan_render`.
+     Pass `pages` with the floor-plan sheets — on a multi-sheet set the
+     whole-document run can return `no_renders` when the same sheets render
+     fine on their own. Use `get_document` to find the sheets. On a yes,
+     `render_floor_plan`, then poll `get_floor_plan_render`.
+   - On `no_renders`, report the message, retry once with `pages` if it was
+     omitted, and otherwise ask for a plan-only PDF.
    - Return the image and film links.
    - Paid add-ons (more images, films, remixes) are listed by
      `get_floor_plan_renders`. Offer them only if the user asks for more;
