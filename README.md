@@ -13,6 +13,21 @@ using their own scale and legends and cites the sheet for every quantity,
 then hands the results to Claude for Manufacturing's quoting and reporting
 skills.
 
+## Install
+
+In Claude Code:
+
+```
+/plugin marketplace add kkfromus/aginera-for-manufacturing
+/plugin install aginera-for-manufacturing@aginera
+```
+
+On Claude Code 2.1.275 or later this works in one step:
+
+```
+/plugin install aginera-for-manufacturing --marketplace kkfromus/aginera-for-manufacturing
+```
+
 ## Skills
 
 | Skill | What it does |
