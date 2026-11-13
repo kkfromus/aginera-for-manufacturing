@@ -53,9 +53,21 @@ questions from what the RFQ already shows.
 
 - `get_takeoff_items` for counts and areas, `get_takeoff_routes` for measured
   lengths, `get_schedules` for door, window, fixture and equipment schedules.
-- Keep only items inside the trade scope. List out-of-scope items the
-  takeoff found in a short "seen but not ours" line, so the estimator can
-  confirm nothing was dropped by mistake.
+- **Read every page of results.** Follow `next_cursor` until `has_more` is
+  false. Ask for quantities in the units the plant prices in (`units`).
+- **Filter by `item_type` and description, not `category` alone.** A
+  category such as `lighting` also holds outlets for light fittings, dimmer
+  modules and breakers. Keep only items inside the trade scope. List
+  out-of-scope items the takeoff found in a short "seen but not ours" line,
+  so the estimator can confirm nothing was dropped by mistake.
+- **Never add up the same item across sheets.** One fixture often appears on
+  the lighting plan, the reflected ceiling plan and a circuit schedule; the
+  description says so with "[also on pN …]". Take one quantity per tag per
+  area, say which sheet it came from and which sheets repeat it. Do not use
+  the response's `totals` for quote quantities — they sum every row.
+- **Hold back what is not a firm quantity.** Rows with quantity 0, low
+  confidence, or text such as "existing", "no modification" or "name
+  unknown" go to a review list with their sheet, not into quote lines.
 - **Schedule vs plan mismatches are findings, not errors.** When the schedule
   says 42 doors of a type and the plans show 40 tags, report both numbers with
   both sheets. That is a question for the customer, not a number to average.
