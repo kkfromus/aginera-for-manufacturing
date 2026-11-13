@@ -29,8 +29,11 @@ controlling document either way.
    pages, the format options, and the price for the download. If it is not
    convertible, say why (from the error's `code`) and stop; suggest asking
    the customer for the native CAD or a STEP file.
-3. **Preview** — `get_cad_file` without paying, to view the result. Check
-   three things and report each:
+3. **Preview** — `get_cad_file` without paying returns the file or its
+   price. The download link is time-limited and may not be reachable from
+   Claude's own workspace; when it is not, give the user the link and run
+   the checks below in Fusion after import, or ask the user to measure the
+   one dimension in their CAD tool. Check three things and report each:
    - **Scale**: one known dimension from the drawing measured in the
      converted file. State both numbers. If they differ, the scale is wrong
      and the file must not be used for estimating.
