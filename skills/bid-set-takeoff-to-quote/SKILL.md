@@ -71,6 +71,11 @@ questions from what the RFQ already shows.
 - **Hold back what is not a firm quantity.** Rows with quantity 0, low
   confidence, or text such as "existing", "no modification" or "name
   unknown" go to a review list with their sheet, not into quote lines.
+  Leave out rows with `review_status: rejected` — a rejected row keeps its
+  `effective_quantity`.
+- **Check the takeoff's warnings.** A `pages_not_read` warning names sheets
+  the run did not reach; list them, and offer to run those pages before the
+  quote goes out.
 - **Schedule vs plan mismatches are findings, not errors.** When the schedule
   says 42 doors of a type and the plans show 40 tags, report both numbers with
   both sheets. That is a question for the customer, not a number to average.
