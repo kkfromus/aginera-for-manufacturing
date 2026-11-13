@@ -53,8 +53,11 @@ questions from what the RFQ already shows.
 
 - `get_takeoff_items` for counts and areas, `get_takeoff_routes` for measured
   lengths, `get_schedules` for door, window, fixture and equipment schedules.
-- **Read every page of results.** Follow `next_cursor` until `has_more` is
-  false. Ask for quantities in the units the plant prices in (`units`).
+- **Read every page of results, in slices.** Filter each call by `trade`,
+  `category`, `item_type` or `page_number`, keep `detail` at `summary` and
+  `limit` at 100 or less — a large set returns more than fits in one reply.
+  Follow `next_cursor` until `has_more` is false. Ask for quantities in the
+  units the plant prices in (`units`).
 - **Filter by `item_type` and description, not `category` alone.** A
   category such as `lighting` also holds outlets for light fittings, dimmer
   modules and breakers. Keep only items inside the trade scope. List
@@ -80,6 +83,15 @@ With Claude for Manufacturing installed, load its `customer-inquiry-intake`
 SKILL.md and produce its intake form, with:
 
 - One line item per quote line, quantity = `effective_quantity`.
+- **For a fabricated assembly** (a skid, a panel, a frame), the line item is
+  the assembly the customer buys, one per unit tag. The takeoff rows become
+  its bill of materials, kept with their sheets and item ids for
+  `quote-build` to cost; they are not separate line items.
+- Material, pressure, temperature and size stated on the sheets go into
+  `material` and `specs` with `reading_basis: printed_callout` and the sheet.
+  When the same item is described differently on two sheets (a tank shown as
+  2,800 gal on one sheet and 2,000 gal on three others), that goes in the
+  ambiguous register with every value and sheet.
 - `field_sources` for every quantity pointing at the Aginera citation:
   document name, sheet number, and the Aginera item id (`itm_…`).
 - Schedule-vs-plan mismatches in the **ambiguous** register; scope items the
