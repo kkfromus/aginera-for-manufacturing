@@ -1,8 +1,8 @@
 {
   "name": "aginera-for-manufacturing",
   "displayName": "Aginera for Manufacturing",
-  "version": "0.1.3",
-  "description": "Construction-drawing intelligence for manufacturers. Takeoffs from customer bid sets with every quantity cited to its sheet, PDF drawings converted to DXF/DWG for Fusion, plant floor plans turned into clean CAD and 3D images or walkthrough films, and quantities for plant expansions. Hands off to Claude for Manufacturing's RFQ intake, quote-build, supplier RFQ and production-report skills.",
+  "version": "0.1.4",
+  "description": "Construction-drawing and CAD intelligence for manufacturers. Takeoffs from customer bid sets with every quantity cited to its sheet, PDF drawings converted to DXF/DWG for Fusion, 3D part models from a description or a PDF drawing (text to CAD) with STL/STEP files, plant floor plans turned into clean CAD and 3D images or walkthrough films, and quantities for plant expansions. Hands off to Claude for Manufacturing's RFQ intake, quote-build, supplier RFQ, design and production-report skills.",
   "author": {
     "name": "Aginera (Kamna Ventures LLC)",
     "email": "support@aginera.ai",
@@ -22,7 +22,10 @@
     "fusion",
     "floor-plan",
     "building-products",
-    "fabrication"
+    "fabrication",
+    "text-to-cad",
+    "3d-model",
+    "step"
   ],
   "privacyPolicyUrl": "https://aginera.ai/privacy",
   "icon": ".claude-plugin/icon.png"
