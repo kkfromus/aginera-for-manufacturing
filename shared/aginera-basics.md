@@ -28,6 +28,8 @@ Files attached to the chat do not reach Aginera on their own.
 | Run a new takeoff | `run_takeoff` | Credits. Free plan: first 5 sheets in one project free |
 | Check a PDF converts to CAD, view it | `convert_pdf_to_cad`, `get_cad_file` | Free |
 | Download the DXF/DWG | `get_cad_file` with payment | One-time purchase per document on free accounts |
+| Build, change and check a 3D part model; its STL/3MF files | `create_cad_model`, `change_cad_model`, `get_cad_model`, `get_cad_model_files` | STL/3MF free; follow any cost the tool reports |
+| STEP and 2D drawing of a model | `get_cad_model_files` | The model's one-time purchase |
 | Render floor-plan images or film | `render_floor_plan`, add-ons via `create_render_checkout` | Credits / paid add-ons |
 
 - **Always check `list_takeoffs` first.** A takeoff the user already ran in the
