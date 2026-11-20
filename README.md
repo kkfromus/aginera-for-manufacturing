@@ -34,6 +34,7 @@ On Claude Code 2.1.275 or later this works in one step:
 |---|---|
 | `bid-set-takeoff-to-quote` | Runs a takeoff on a customer's bid set, filters it to the plant's product scope, flags schedule-vs-plan mismatches, and builds the RFQ intake form for `customer-inquiry-intake` and `quote-build`, with every quantity traced to its sheet. |
 | `drawing-to-cad` | Converts a PDF drawing to DXF/DWG, checks the scale against a known dimension, and brings it into Fusion as a sketch for the `rfq-to-quote` design step. |
+| `text-to-cad` | Builds a 3D model of a part from a description or a PDF part drawing, changes it in plain words or exact dimensions, measures it against the request, and returns STL/3MF or STEP. Gives `rfq-to-quote` and `quote-build` a measured model when Fusion isn't connected. |
 | `plant-floor-plan` | Turns a plant layout into clean CAD, area measurements and 3D images or a walkthrough film, and gives the `daily-production-report` floor view a cleanly read machine-label list. |
 | `plant-project-takeoff` | Measures quantities for the plant's own expansions and build-outs for budgets, comparable contractor RFQs via `supplier-quote-request`, and checking contractor bids. |
 
@@ -46,7 +47,7 @@ keys are stored in the plugin.
 ## Costs and consent
 
 Reading existing takeoffs, checking whether a PDF converts, and previewing
-CAD are free. Running a new takeoff, downloading CAD files and rendering
+CAD are free, and so are the STL/3MF files of a text-to-CAD model. Running a new takeoff, downloading CAD files, a model's STEP and drawing, and rendering
 images or films use Aginera credits or a one-time purchase. Claude asks
 before every action that spends, and any checkout link is for you to
 complete. Claude never pays on your behalf. New Aginera accounts get their
